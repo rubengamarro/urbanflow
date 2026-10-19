@@ -1,0 +1,116 @@
+name: urbanflow
+x-runtime: &runtime
+  image: urbanflow-ai:local
+  init: true
+  environment: &env
+    URBANFLOW_ROOT: /app
+    PREFECT_SERVER_ANALYTICS_ENABLED: "false"
+    OMP_NUM_THREADS: "2"
+    OPENBLAS_NUM_THREADS: "2"
+    MLFLOW_DISABLE_AGENT_HINT: "1"
+  volumes:
+    - data:/app/data
+    - artifacts:/app/artifacts
+    - reports:/app/reports
+
+services:
+  postgres:
+    image: postgres:16-bookworm
+    environment:
+      POSTGRES_USER: urbanflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-urbanflow}
+      POSTGRES_DB: urbanflow
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["postgres:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U urbanflow -d urbanflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  mlflow:
+    <<: *runtime
+    build: .
+    command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000", "--workers", "1", "--backend-store-uri", "sqlite:////app/artifacts/tracking.db", "--artifacts-destination", "/app/artifacts/mlartifacts", "--allowed-hosts", "mlflow:5000,localhost:5000,127.0.0.1:5000"]
+    ports: ["127.0.0.1:5000:5000"]
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      start_period: 40s
+      retries: 20
+
+  trainer:
+    <<: *runtime
+    profiles: ["training"]
+    environment:
+      <<: *env
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      DATABASE_URL: postgresql+psycopg://urbanflow:${POSTGRES_PASSWORD:-urbanflow}@postgres:5432/urbanflow
+    command: ["urbanflow", "pipeline", "--warehouse", "--engine", "spark"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      mlflow: {condition: service_healthy}
+
+  api:
+    <<: *runtime
+    ports: ["127.0.0.1:${URBANFLOW_API_PORT:-8000}:8000"]
+    volumes:
+      - artifacts:/app/artifacts:ro
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8000/health/ready"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 10
+    restart: unless-stopped
+
+  dashboard:
+    <<: *runtime
+    environment:
+      <<: *env
+      URBANFLOW_API_URL: http://api:8000
+    volumes:
+      - data:/app/data:ro
+      - reports:/app/reports:ro
+    command: ["streamlit", "run", "apps/dashboard.py", "--server.address", "0.0.0.0", "--browser.gatherUsageStats", "false"]
+    ports: ["127.0.0.1:8501:8501"]
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8501/_stcore/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  prefect:
+    <<: *runtime
+    profiles: ["orchestration"]
+    command: ["prefect", "server", "start", "--host", "0.0.0.0"]
+    volumes: ["prefect:/app/.prefect"]
+    ports: ["127.0.0.1:4200:4200"]
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:4200/api/health"]
+      interval: 10s
+      timeout: 5s
+      start_period: 40s
+      retries: 20
+
+  scheduler:
+    <<: *runtime
+    profiles: ["orchestration"]
+    environment:
+      <<: *env
+      PREFECT_API_URL: http://prefect:4200/api
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    command: ["urbanflow", "schedule", "--engine", "spark"]
+    depends_on:
+      prefect: {condition: service_healthy}
+      mlflow: {condition: service_healthy}
+
+volumes:
+  data:
+  artifacts:
+  reports:
+  postgres:
+  prefect:

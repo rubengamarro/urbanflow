@@ -1,0 +1,17 @@
+.git
+.venv
+.cache
+__pycache__
+.pytest_cache
+.ruff_cache
+data
+artifacts
+reports
+mlruns
+mlartifacts
+.prefect
+.env
+*.db
+htmlcov
+coverage.xml
+.coverage
