@@ -1,0 +1,23 @@
+{
+  "reference": "training period",
+  "current": "test period (offline diagnostic)",
+  "psi": {
+    "hour_sin": 0.0,
+    "hour_cos": 0.0,
+    "dow_sin": 0.011954118820404092,
+    "dow_cos": 0.011954118820404093,
+    "weekend": 0.006511484171212658,
+    "lag_1": 0.004149659578602272,
+    "lag_2": 0.004150587681453427,
+    "lag_24": 0.0033671228727202604,
+    "lag_168": 0.0006288597471808431,
+    "mean_24": 0.01890448383636152,
+    "mean_168": 0.017694931721092818,
+    "std_24": 0.01573611353140414
+  },
+  "psi_alert_threshold": 0.2,
+  "alert_features": [],
+  "coverage_90": 0.8827629911280102,
+  "coverage_below_85": false,
+  "note": "Heuristic alerts; drift alone is not a reason to deploy a new model."
+}

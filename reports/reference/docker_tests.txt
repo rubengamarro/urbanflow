@@ -1,0 +1,162 @@
+   Building urbanflow-ai @ file:///app
+Downloading jedi (4.7MiB)
+Downloading ruff (9.9MiB)
+Downloading debugpy (3.8MiB)
+ Downloading debugpy
+ Downloading ruff
+      Built urbanflow-ai @ file:///app
+ Downloading jedi
+Prepared 32 packages in 8.27s
+Uninstalled 1 package in 5ms
+Installed 32 packages in 574ms
+ + asttokens==3.0.2
+ + comm==0.2.3
+ + coverage==7.16.2
+ + debugpy==1.8.22
+ + executing==2.2.1
+ + fastjsonschema==2.22.2
+ + iniconfig==2.3.1
+ + ipykernel==6.31.0
+ + ipython==9.17.1
+ + ipython-pygments-lexers==1.1.1
+ + jedi==0.20.0
+ + jupyter-client==8.10.0
+ + jupyter-core==5.9.1
+ + matplotlib-inline==0.2.2
+ + nbclient==0.11.0
+ + nbformat==5.11.1
+ + nest-asyncio==1.6.0
+ + parso==0.8.7
+ + pexpect==4.9.0
+ + platformdirs==4.12.4
+ + prompt-toolkit==3.0.53
+ + psutil==7.2.2
+ + ptyprocess==0.7.0
+ + pure-eval==0.2.4
+ + pytest==8.4.2
+ + pytest-cov==6.3.0
+ + pyzmq==27.2.0
+ + ruff==0.16.10
+ + stack-data==0.6.3
+ + tornado==6.5.10
+ + traitlets==5.16.1
+ ~ urbanflow-ai==1.0.0 (from file:///app)
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-8.4.2, pluggy-1.6.0
+rootdir: /verification
+configfile: pyproject.toml
+plugins: anyio-4.15.1, cov-6.3.0, platformdirs-4.12.4
+collected 29 items
+
+../verification/tests/test_analysis.py ...                               [ 10%]
+../verification/tests/test_dashboard.py .                                [ 13%]
+../verification/tests/test_data.py ..........                            [ 48%]
+../verification/tests/test_e2e.py ....                                   [ 62%]
+../verification/tests/test_features.py .......                           [ 86%]
+../verification/tests/test_postgres.py .                                 [ 89%]
+../verification/tests/test_spark.py ...                                  [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /app/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/test_analysis.py::test_processing_eda_and_monitoring_outputs
+tests/test_analysis.py::test_processing_eda_and_monitoring_outputs
+  /app/.venv/lib/python3.12/site-packages/pandas/plotting/_matplotlib/converter.py:1063: MatplotlibDeprecationWarning: The locs attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13.
+    self.locs: list[Any] = []  # unused, for matplotlib compat
+
+tests/test_analysis.py: 36 warnings
+  /app/.venv/lib/python3.12/site-packages/pandas/plotting/_matplotlib/converter.py:1087: MatplotlibDeprecationWarning: The locs attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13.
+    self.locs = locs
+
+tests/test_analysis.py: 2 warnings
+tests/test_e2e.py: 7 warnings
+tests/test_features.py: 6 warnings
+  /app/.venv/lib/python3.12/site-packages/urbanflow/features.py:27: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+    if not deltas.eq(pd.Timedelta(hours=1)).all():
+
+tests/test_e2e.py::test_real_components_train_register_and_serve
+  /app/.venv/lib/python3.12/site-packages/mlflow/store/tracking/sqlalchemy_store.py:327: SADeprecationWarning: The ``noload`` loader strategy is deprecated and will be removed in a future release.  This option produces incorrect results by returning ``None`` for related items. (deprecated since: 2.1)
+    sqlalchemy.orm.configure_mappers()
+
+tests/test_e2e.py::test_real_components_train_register_and_serve
+tests/test_e2e.py::test_corrupt_bundle_rejected
+tests/test_e2e.py::test_failed_training_preserves_champion
+tests/test_e2e.py::test_failed_training_preserves_champion
+  /app/.venv/lib/python3.12/site-packages/mlflow/types/utils.py:440: UserWarning: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+    warnings.warn(
+
+tests/test_e2e.py::test_real_components_train_register_and_serve
+tests/test_e2e.py::test_real_components_train_register_and_serve
+tests/test_e2e.py::test_real_components_train_register_and_serve
+  /app/.venv/lib/python3.12/site-packages/urbanflow/serving.py:50: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+    if target > self.latest + pd.Timedelta("1h"):
+
+tests/test_e2e.py::test_real_components_train_register_and_serve
+tests/test_e2e.py::test_real_components_train_register_and_serve
+  /app/.venv/lib/python3.12/site-packages/urbanflow/serving.py:54: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+    start = target - pd.Timedelta("168h")
+
+tests/test_e2e.py::test_real_components_train_register_and_serve
+  /app/.venv/lib/python3.12/site-packages/pandas/core/internals/concat.py:510: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+    return dtype.type("NaT")
+
+tests/test_e2e.py::test_real_components_train_register_and_serve
+tests/test_e2e.py::test_real_components_train_register_and_serve
+  /app/.venv/lib/python3.12/site-packages/urbanflow/serving.py:79: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+    "observed_through": (target - pd.Timedelta("1h")).tz_localize("UTC").isoformat(),
+
+tests/test_e2e.py::test_real_components_train_register_and_serve
+  /app/.venv/lib/python3.12/site-packages/urbanflow/serving.py:41: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+    target if target is not None else self.latest.tz_localize("UTC") + pd.Timedelta("1h")
+
+tests/test_features.py::test_future_labels_cannot_change_past_or_target_features
+  C:\Users\Ruben\Documents\projects\UrbanFlow\tests\test_features.py:11: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+
+tests/test_spark.py::test_spark_arrow_parity[2024-01]
+tests/test_spark.py::test_spark_arrow_parity[2024-01]
+tests/test_spark.py::test_spark_arrow_parity[2024-01]
+tests/test_spark.py::test_spark_arrow_parity[2024-01]
+tests/test_spark.py::test_spark_arrow_parity[2024-03]
+tests/test_spark.py::test_spark_arrow_parity[2024-03]
+tests/test_spark.py::test_spark_arrow_parity[2024-03]
+tests/test_spark.py::test_spark_arrow_parity[2024-03]
+  /app/.venv/lib/python3.12/site-packages/pyspark/sql/pandas/utils.py:37: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    if LooseVersion(pandas.__version__) < LooseVersion(minimum_pandas_version):
+
+tests/test_spark.py::test_spark_arrow_parity[2024-01]
+tests/test_spark.py::test_spark_arrow_parity[2024-03]
+  /app/.venv/lib/python3.12/site-packages/pyspark/sql/pandas/types.py:563: DeprecationWarning: is_datetime64tz_dtype is deprecated and will be removed in a future version. Check `isinstance(dtype, pd.DatetimeTZDtype)` instead.
+    if not is_datetime64tz_dtype(pser.dtype):
+
+tests/test_spark.py::test_spark_arrow_parity[2024-01]
+tests/test_spark.py::test_spark_arrow_parity[2024-03]
+  /app/.venv/lib/python3.12/site-packages/pyspark/sql/pandas/types.py:379: DeprecationWarning: is_datetime64tz_dtype is deprecated and will be removed in a future version. Check `isinstance(dtype, pd.DatetimeTZDtype)` instead.
+    if is_datetime64tz_dtype(s.dtype):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+------------------ generated xml file: /tmp/docker-tests.xml -------------------
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.15-final-0 _______________
+
+Name                                                         Stmts   Miss  Cover
+--------------------------------------------------------------------------------
+.venv/lib/python3.12/site-packages/urbanflow/__init__.py         1      0   100%
+.venv/lib/python3.12/site-packages/urbanflow/api.py             78      1    99%
+.venv/lib/python3.12/site-packages/urbanflow/cli.py             57     33    42%
+.venv/lib/python3.12/site-packages/urbanflow/config.py          21      0   100%
+.venv/lib/python3.12/site-packages/urbanflow/eda.py             32      0   100%
+.venv/lib/python3.12/site-packages/urbanflow/features.py        23      0   100%
+.venv/lib/python3.12/site-packages/urbanflow/ingest.py          60     12    80%
+.venv/lib/python3.12/site-packages/urbanflow/io.py              22      1    95%
+.venv/lib/python3.12/site-packages/urbanflow/modeling.py       137      3    98%
+.venv/lib/python3.12/site-packages/urbanflow/monitoring.py      21      0   100%
+.venv/lib/python3.12/site-packages/urbanflow/pipeline.py        29     29     0%
+.venv/lib/python3.12/site-packages/urbanflow/processing.py      85      4    95%
+.venv/lib/python3.12/site-packages/urbanflow/serving.py         54      3    94%
+.venv/lib/python3.12/site-packages/urbanflow/warehouse.py       28      0   100%
+--------------------------------------------------------------------------------
+TOTAL                                                          648     86    87%
+Required test coverage of 75% reached. Total coverage: 86.73%
+================== 29 passed, 81 warnings in 85.71s (0:01:25) ==================

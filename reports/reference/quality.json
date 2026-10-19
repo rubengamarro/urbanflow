@@ -1,0 +1,30 @@
+{
+  "engine": "spark",
+  "months": [
+    "2024-01",
+    "2024-02"
+  ],
+  "quality": [
+    {
+      "month": "2024-01",
+      "raw_rows": 2964624,
+      "valid_rows": 2952588,
+      "rejected_rows": 12036
+    },
+    {
+      "month": "2024-02",
+      "raw_rows": 3007526,
+      "valid_rows": 2996418,
+      "rejected_rows": 11108
+    }
+  ],
+  "panel_rows": 378720,
+  "zones": 263,
+  "timezone": "UTC; NYC wall-time source localized before aggregation",
+  "sha256": "78fca5f4628de23674bd7f30b384f4b4fdece5a0a2d6b6781bd2c1c210c67b75",
+  "source_sha256": {
+    "yellow_tripdata_2024-01.parquet": "c4d59da7bbc8abaeeeb1727947ee93d9891a71acb42854bd80db1571b2030510",
+    "yellow_tripdata_2024-02.parquet": "c76c43c18c6c6664080dd920baab4928988d5786a6b65980792ca7cd796f9f20"
+  },
+  "zero_fraction": 0.6055687579214195
+}

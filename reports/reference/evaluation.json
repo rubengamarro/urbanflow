@@ -1,0 +1,263 @@
+{
+  "model_version": "dc0e44e82e9e",
+  "selected_model": "xgboost_deep",
+  "run_id": "deaae1d21e6a495897545e8b420e96d9",
+  "selection_metric": "validation MAE (test never used for selection)",
+  "validation": {
+    "seasonal_naive": {
+      "mae": 3.7757106644939347,
+      "rmse": 13.221473105418816,
+      "wape": 0.23107630424183326,
+      "poisson_deviance": 5.851755762278137
+    },
+    "hist_gradient_boosting": {
+      "mae": 3.236548950838044,
+      "rmse": 11.090683990999864,
+      "wape": 0.1980792058804853,
+      "poisson_deviance": 1.6825915322380502
+    },
+    "xgboost_small": {
+      "mae": 3.3055692462605717,
+      "rmse": 11.037394763007415,
+      "wape": 0.20230329935615818,
+      "poisson_deviance": 1.7600598803162684
+    },
+    "xgboost_deep": {
+      "mae": 3.1932696205234685,
+      "rmse": 10.742223122308971,
+      "wape": 0.1954304786373733,
+      "poisson_deviance": 1.6571508434490412
+    }
+  },
+  "cross_validation": [
+    {
+      "model": "seasonal_naive",
+      "fold": 0,
+      "train_end": "2024-01-16 04:00:00",
+      "validation_start": "2024-01-16 05:00:00",
+      "mae": 3.7312856463878328,
+      "rmse": 13.58163352361693,
+      "wape": 0.23997661560564434,
+      "poisson_deviance": 5.814160835933711
+    },
+    {
+      "model": "seasonal_naive",
+      "fold": 1,
+      "train_end": "2024-01-24 04:00:00",
+      "validation_start": "2024-01-24 05:00:00",
+      "mae": 3.0153873574144487,
+      "rmse": 10.470576910092623,
+      "wape": 0.1880938733761902,
+      "poisson_deviance": 4.725479538407532
+    },
+    {
+      "model": "seasonal_naive",
+      "fold": 2,
+      "train_end": "2024-02-01 04:00:00",
+      "validation_start": "2024-02-01 05:00:00",
+      "mae": 2.8774160329531053,
+      "rmse": 9.645059381307512,
+      "wape": 0.17745193587704963,
+      "poisson_deviance": 4.491245287031996
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "fold": 0,
+      "train_end": "2024-01-16 04:00:00",
+      "validation_start": "2024-01-16 05:00:00",
+      "mae": 3.2674362958405445,
+      "rmse": 12.510265100565054,
+      "wape": 0.21014427151722706,
+      "poisson_deviance": 1.6426711603277677
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "fold": 1,
+      "train_end": "2024-01-24 04:00:00",
+      "validation_start": "2024-01-24 05:00:00",
+      "mae": 2.810692431221084,
+      "rmse": 9.723055070918203,
+      "wape": 0.1753254105007682,
+      "poisson_deviance": 1.329493592863631
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "fold": 2,
+      "train_end": "2024-02-01 04:00:00",
+      "validation_start": "2024-02-01 05:00:00",
+      "mae": 2.64794984725875,
+      "rmse": 8.896524490752581,
+      "wape": 0.16330062150211874,
+      "poisson_deviance": 1.197290819216603
+    },
+    {
+      "model": "xgboost_small",
+      "fold": 0,
+      "train_end": "2024-01-16 04:00:00",
+      "validation_start": "2024-01-16 05:00:00",
+      "mae": 3.1957387290738586,
+      "rmse": 11.258591685073391,
+      "wape": 0.2055330621244309,
+      "poisson_deviance": 1.6604563158313153
+    },
+    {
+      "model": "xgboost_small",
+      "fold": 1,
+      "train_end": "2024-01-24 04:00:00",
+      "validation_start": "2024-01-24 05:00:00",
+      "mae": 2.8815590501795385,
+      "rmse": 9.84306977494759,
+      "wape": 0.17974592941691825,
+      "poisson_deviance": 1.4427894836096655
+    },
+    {
+      "model": "xgboost_small",
+      "fold": 2,
+      "train_end": "2024-02-01 04:00:00",
+      "validation_start": "2024-02-01 05:00:00",
+      "mae": 2.7513445134151313,
+      "rmse": 9.193312722922807,
+      "wape": 0.1696770312595847,
+      "poisson_deviance": 1.3231876281726807
+    },
+    {
+      "model": "xgboost_deep",
+      "fold": 0,
+      "train_end": "2024-01-16 04:00:00",
+      "validation_start": "2024-01-16 05:00:00",
+      "mae": 3.0955339680625453,
+      "rmse": 11.024726018651473,
+      "wape": 0.19908842033230587,
+      "poisson_deviance": 1.5425100083004009
+    },
+    {
+      "model": "xgboost_deep",
+      "fold": 1,
+      "train_end": "2024-01-24 04:00:00",
+      "validation_start": "2024-01-24 05:00:00",
+      "mae": 2.7367002332770602,
+      "rmse": 9.269925655101435,
+      "wape": 0.17070992417637013,
+      "poisson_deviance": 1.3063455515151334
+    },
+    {
+      "model": "xgboost_deep",
+      "fold": 2,
+      "train_end": "2024-02-01 04:00:00",
+      "validation_start": "2024-02-01 05:00:00",
+      "mae": 2.566997730160039,
+      "rmse": 8.37411176854227,
+      "wape": 0.15830825691945222,
+      "poisson_deviance": 1.1714267491494557
+    }
+  ],
+  "test": {
+    "mae": 3.095618829946013,
+    "rmse": 10.704398461967592,
+    "wape": 0.17984337613533485,
+    "poisson_deviance": 1.4953793160556321
+  },
+  "test_baseline": {
+    "mae": 3.962656165127648,
+    "rmse": 13.959459615787488,
+    "wape": 0.23021486247145095,
+    "poisson_deviance": 6.335337245568239
+  },
+  "test_top20_training_demand_zones": {
+    "zones": [
+      161,
+      237,
+      236,
+      132,
+      162,
+      230,
+      186,
+      142,
+      163,
+      239,
+      138,
+      170,
+      234,
+      68,
+      48,
+      141,
+      249,
+      140,
+      79,
+      164
+    ],
+    "model": {
+      "mae": 20.702850516317856,
+      "rmse": 34.183346653165664,
+      "wape": 0.14462107006941485,
+      "poisson_deviance": 5.756322256826364
+    },
+    "baseline": {
+      "mae": 26.707440476190477,
+      "rmse": 43.828171658790204,
+      "wape": 0.18656651254074913,
+      "poisson_deviance": 12.23232255968543
+    }
+  },
+  "test_coverage_90": 0.8827629911280102,
+  "test_mean_interval_width": 12.355833908212821,
+  "bootstrap": {
+    "unit": "24-hour block anchored at test start, all zones kept together",
+    "days": 7,
+    "iterations": 2000,
+    "mae_ci95": [
+      2.808418388140954,
+      3.462273528806264
+    ],
+    "paired_mae_gain_ci95": [
+      0.5277041095347068,
+      1.298291628505461
+    ]
+  },
+  "partitions": {
+    "train": {
+      "start": "2024-01-08 05:00:00",
+      "end": "2024-02-09 04:00:00",
+      "rows": 201984
+    },
+    "validation": {
+      "start": "2024-02-09 05:00:00",
+      "end": "2024-02-16 04:00:00",
+      "rows": 44184
+    },
+    "calibration": {
+      "start": "2024-02-16 05:00:00",
+      "end": "2024-02-23 04:00:00",
+      "rows": 44184
+    },
+    "test": {
+      "start": "2024-02-23 05:00:00",
+      "end": "2024-03-01 04:00:00",
+      "rows": 44184
+    }
+  },
+  "data_sha256": "78fca5f4628de23674bd7f30b384f4b4fdece5a0a2d6b6781bd2c1c210c67b75",
+  "features": [
+    "zone_id",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "weekend",
+    "lag_1",
+    "lag_2",
+    "lag_24",
+    "lag_168",
+    "mean_24",
+    "mean_168",
+    "std_24"
+  ],
+  "versions": {
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "xgboost": "3.4.1",
+    "mlflow": "3.17.0"
+  },
+  "python": "3.12.14",
+  "duration_seconds": 51.68387300000177
+}

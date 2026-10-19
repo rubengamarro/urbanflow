@@ -1,0 +1,25 @@
+{
+  "model_version": "dc0e44e82e9e",
+  "pipeline_status": "Completed",
+  "files": {
+    "docker_tests.txt": "a41c38d433067360fc9e970118f1a0fbd23b2f0167663ba4e3b4a64d682e1fa4",
+    "docker_training.txt": "ec571d8b667e1a171eb69577cbdf10be219156d443420141851debddc29a4f2a",
+    "docker_verification.json": "af23380889c14cda2d6c6f6b7c106dce49a17543f0dbe80890aa2f2231abc18d",
+    "eda.json": "ebe151c28dfb0a7c4321b5e9b5b804f90c25524f66f7a62e4bc4556203e487ff",
+    "eda.png": "1b579b0a9a171467db10ab3aefd53ebb17ab2f65e33fe3bcfd6f9bcbd11421cd",
+    "evaluation.json": "89d3815ffa6ea472df2aca896e6e201a30dfeeab196c5e9e222d9138c61013d6",
+    "inference_example.json": "ced68cb23c0333c75e42b4942200b543095a6765c85dc7b0f3ee8fe675e1bb82",
+    "manifest.json": "0eef2104a822e359eae6de7403a45cdcfb83f998b3e1afc1189d88037f10e3a1",
+    "monitoring.json": "b412fb0aa4fb56e1de6625b737371399f655b0a13bc451408c63099aa57ad8e1",
+    "per_zone.csv": "560b31197ae7bd378f148d72b745dbe70f3fdd02262b4073af6ec68681d99f51",
+    "quality.json": "89d808765c4001fba402c2220f8933262751ab0ad6ff3f6d8cb2466883d02a8b",
+    "service_verification.json": "3d7bb566d3722a5b597515b444f074d7775f74f337f35d9ab3c0bba52eb3cbca",
+    "spark_verification.json": "5ab2e345f42f1b76b1cd7f9e125e1d1b9c734c76ae76eb953d2f1cae96e021cd",
+    "test_predictions.parquet": "ccc8629639d4c6b635e6263032513778ccf5195427e22fe4ceac3833d5bd3c3f",
+    "top_zones.csv": "aa09904e18f83ad41506ff9627980a3841dd33fc0205365d566f0e9ada99749c",
+    "validation.json": "ce6cd52963461e1ef2b5944a714374a87937b818d5c2ec2b522792a968f6b478",
+    "validation_feature_importance.csv": "df1bc6b371d1950d58f44b20b278dc8baf10230a48649d07b79431c299e0d20e",
+    "warehouse_verification.json": "19c530e929b697d13ec3c8cf150dde3e4e3a669da1353481b93c00a25b1393c9"
+  },
+  "note": "Outputs from a real TLC benchmark; test fixtures are never exported."
+}

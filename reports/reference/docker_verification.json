@@ -1,0 +1,171 @@
+{
+  "verified_at_utc": "2026-10-08T20:52:20.679011+00:00",
+  "status": "passed",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+  "python": "3.12.15",
+  "uid": 10001,
+  "packages": {
+    "pyspark": "3.5.5",
+    "prefect": "3.8.8",
+    "mlflow": "3.17.0",
+    "xgboost": "3.4.1"
+  },
+  "api": "readiness, OpenAPI, forecast equality, historical replay, rejected future, metrics",
+  "dashboard": "HTTP health, four AppTest tabs and forecast interaction passed",
+  "warehouse": {
+    "rows": 378720,
+    "pickups": 5949006,
+    "zones": 263
+  },
+  "model_version": "717262bd933c",
+  "mlflow_run_id": "03ac87844ee840e59ccfc8c19d730769",
+  "mlflow_registered_version": "1",
+  "mlflow_reload": "20 predictions match the serving estimator",
+  "test": {
+    "mae": 3.0956188292505136,
+    "rmse": 10.704398460084162,
+    "wape": 0.1798433760949291,
+    "poisson_deviance": 1.49537931593393
+  },
+  "test_baseline": {
+    "mae": 3.962656165127648,
+    "rmse": 13.959459615787488,
+    "wape": 0.23021486247145095,
+    "poisson_deviance": 6.335337245568239
+  },
+  "coverage_90": 0.8827629911280102,
+  "services": {
+    "api": {
+      "State": "running",
+      "Health": "healthy",
+      "Ports": "127.0.0.1:18000->8000/tcp"
+    },
+    "dashboard": {
+      "State": "running",
+      "Health": "healthy",
+      "Ports": "127.0.0.1:8501->8501/tcp"
+    },
+    "mlflow": {
+      "State": "running",
+      "Health": "healthy",
+      "Ports": "127.0.0.1:5000->5000/tcp"
+    },
+    "postgres": {
+      "State": "running",
+      "Health": "healthy",
+      "Ports": "127.0.0.1:5432->5432/tcp"
+    },
+    "prefect": {
+      "State": "running",
+      "Health": "healthy",
+      "Ports": "127.0.0.1:4200->4200/tcp"
+    }
+  },
+  "image": "sha256:ce2a0a62a8a6e77ce05477ece28e5ec064b959d24fb0173b4e6272aebf39e568",
+  "docker_engine": "28.4.0",
+  "pipeline": {
+    "engine": "spark",
+    "warehouse": true,
+    "flow_run_name": "prophetic-limpet",
+    "flow_run_id": "25cfb72e-9302-4bee-ae8d-37d07c028cd2",
+    "state": "COMPLETED"
+  },
+  "tests": {
+    "passed": 29,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "coverage": 0.8673,
+    "duration_seconds": 85.71,
+    "log_sha256": "a41c38d433067360fc9e970118f1a0fbd23b2f0167663ba4e3b4a64d682e1fa4"
+  },
+  "quality": {
+    "engine": "spark",
+    "months": [
+      "2024-01",
+      "2024-02"
+    ],
+    "quality": [
+      {
+        "month": "2024-01",
+        "raw_rows": 2964624,
+        "valid_rows": 2952588,
+        "rejected_rows": 12036
+      },
+      {
+        "month": "2024-02",
+        "raw_rows": 3007526,
+        "valid_rows": 2996418,
+        "rejected_rows": 11108
+      }
+    ],
+    "panel_rows": 378720,
+    "zones": 263,
+    "timezone": "UTC; NYC wall-time source localized before aggregation",
+    "sha256": "78fca5f4628de23674bd7f30b384f4b4fdece5a0a2d6b6781bd2c1c210c67b75",
+    "source_sha256": {
+      "yellow_tripdata_2024-01.parquet": "c4d59da7bbc8abaeeeb1727947ee93d9891a71acb42854bd80db1571b2030510",
+      "yellow_tripdata_2024-02.parquet": "c76c43c18c6c6664080dd920baab4928988d5786a6b65980792ca7cd796f9f20"
+    },
+    "zero_fraction": 0.6055687579214195
+  },
+  "host_http": {
+    "status": "passed",
+    "api_port": 18000,
+    "forecast": {
+      "target_hour": "2024-03-01T05:00:00+00:00",
+      "observed_through": "2024-03-01T04:00:00+00:00",
+      "model_version": "717262bd933c",
+      "mode": "next_hour",
+      "predictions": [
+        {
+          "zone_id": 132,
+          "predicted_pickups": 202.5591278076172,
+          "lower_90": 134.66046142578125,
+          "upper_90": 270.4577941894531
+        },
+        {
+          "zone_id": 138,
+          "predicted_pickups": 112.69796752929688,
+          "lower_90": 50.36155700683594,
+          "upper_90": 175.0343780517578
+        },
+        {
+          "zone_id": 161,
+          "predicted_pickups": 94.9422607421875,
+          "lower_90": 15.10760498046875,
+          "upper_90": 174.77691650390625
+        }
+      ]
+    }
+  },
+  "source_sha256": {
+    "Dockerfile": "639fe2551ede291b08107eaad791db9f187977945cc274a32e0ad9452d243aaa",
+    "compose.yaml": "68f1dccb961b4eac22b3cca7cb3a13d776492aff2da331d3e2ff86fe75ef11c4",
+    "pyproject.toml": "e679f1c367e880295defef80c03f8029e5767627b3e61485f45abb319602bf80",
+    "uv.lock": "cf1ab141058f2344753f59886d8b0d8daac424e3a78fe9890406451bd45efa3e",
+    "scripts/verify_docker.py": "c6b89e2ab7e22c1ecc15ca32cda274b55cda80ed9c895ea70fc9793e119ab0dc",
+    "src/urbanflow/api.py": "a22fd3a00b5cae1e16d203bb11a8d86c415297299b68bb7e794f4db8fc682611",
+    "src/urbanflow/cli.py": "b526cde27da40ccf917dee7d7b3401d6db6741d68a802adb39babf8e05003316",
+    "src/urbanflow/config.py": "41a40a93f43f460de3dc6a418c01dbaf1974f447bfab5fb463b7dd8d9cc20052",
+    "src/urbanflow/eda.py": "a938e505d263a4e543efdbcae9b24b4f98fef4d7b8922cb92552bf2d3b8b3547",
+    "src/urbanflow/features.py": "63518b8187337a9a1abc93832c25c02932bb5db47c2b2c836d2659e0d71df71a",
+    "src/urbanflow/ingest.py": "a59a39a42bb4f1ffd9b62fe0db575c21ec0144f92236618294918266a8c470e5",
+    "src/urbanflow/io.py": "a6dbc8666feb0b1cf54487b7207845ac9aab38e7a444518ee4deea635ce58ae6",
+    "src/urbanflow/modeling.py": "a70f3fc6a772a263c60e560e5050bc5aeada103338a71947c89baaef676d6dad",
+    "src/urbanflow/monitoring.py": "b0ef837cce4bdc0ae92fd03e3ff5a59e778502648d4427ee95f2c18ca7a06c3a",
+    "src/urbanflow/pipeline.py": "dd091b2dea2f21554782b1d536810d4168a1547ab7ad326239b55fe4a870e6ec",
+    "src/urbanflow/processing.py": "f941435a49d449d02d5f16a76e0ea00179567873b716164a9f9dfc2754c9c08d",
+    "src/urbanflow/serving.py": "9135a5b41c58d29acab1a27cba7e4370167e651722e8667120f6be009411dc85",
+    "src/urbanflow/warehouse.py": "4d0f19b0fcf46b5fe759e72ffec26bda9302742ae8a812ff8328d31e129fa4ba",
+    "src/urbanflow/__init__.py": "ed2f3971e6d86643399b38ce1a8f8c3b971e32749483e9cd92bc2aeab5e06fb6",
+    "tests/conftest.py": "84464bcbb0ce8d3b52861237ac3c0fe0a8ea987c73d1b0e36421162ba2347c19",
+    "tests/test_analysis.py": "21de9af8d17bc223e5954bafe407e6a72a7d9416fdeba39b41db26699e43db70",
+    "tests/test_dashboard.py": "e843c901edea74dee5ae37a167293521ae214ae7878ca012fc573a66c8189790",
+    "tests/test_data.py": "b41be4189895864277b58e260ef901afd66b32b75c42987c0f862773fd76b43a",
+    "tests/test_e2e.py": "104c8e54f7cdd478b033c7de14cf0bd2b2720c7595720efa51255dca8bf23da8",
+    "tests/test_features.py": "e41cb12f02529731f293f52686567ec0672b93479f32b32163a9a4e99dac5106",
+    "tests/test_postgres.py": "0fe228910f95d38cdb18e2c3019e7ec7e1fd1bff723b07e10ee172067ba49faf",
+    "tests/test_spark.py": "9ede400ea42816a78823e63c931634921933157e2dae82f9064f72b5e51ab702"
+  }
+}

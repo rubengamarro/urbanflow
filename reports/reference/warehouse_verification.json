@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "server_version": "16.15",
+  "loaded_rows": 378720,
+  "total_pickups": 5949006,
+  "zones": 263,
+  "start_utc": "2024-01-01T05:00:00+00:00",
+  "end_utc": "2024-03-01T04:00:00+00:00",
+  "transaction_tests": "idempotence and rollback passed against an isolated database"
+}

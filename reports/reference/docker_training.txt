@@ -1,0 +1,114 @@
+ Container urbanflow-mlflow-1  Running
+ Container urbanflow-postgres-1  Running
+20:48:31.519 | INFO    | Flow run 'prophetic-limpet' - Beginning flow run 'prophetic-limpet' for flow 'urbanflow-end-to-end'
+20:48:31.558 | INFO    | Flow run 'prophetic-limpet' - View at http://prefect:4200/runs/flow-run/25cfb72e-9302-4bee-ae8d-37d07c028cd2
+20:48:43.474 | INFO    | Task run 'download-verified-tlc-ac1' - Finished in state Completed()
+/app/.venv/lib/python3.12/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/08 20:48:47 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+[Stage 0:>                                                          (0 + 1) / 1]
+
+                                                                                
+
+[Stage 1:>                                                          (0 + 2) / 2]
+
+[Stage 1:=============================>                             (1 + 1) / 2]
+
+                                                                                
+
+[Stage 7:>                                                          (0 + 2) / 2]
+
+[Stage 7:=============================>                             (1 + 1) / 2]
+
+                                                                                
+
+[Stage 15:>                                                         (0 + 2) / 2]
+
+[Stage 15:=============================>                            (1 + 1) / 2]
+
+                                                                                
+
+[Stage 21:>                                                         (0 + 2) / 2]
+
+[Stage 21:=============================>                            (1 + 1) / 2]
+
+                                                                                
+20:49:24.074 | INFO    | Task run 'bronze-to-hourly-silver-79f' - Finished in state Completed()
+20:49:40.336 | INFO    | Task run 'transactional-postgres-load-ef8' - Finished in state Completed()
+20:49:42.204 | INFO    | Task run 'exploratory-analysis-c16' - Finished in state Completed()
+2026/10/08 20:49:43 INFO mlflow.tracking.fluent: Experiment with name 'UrbanFlow-hourly-demand' does not exist. Creating a new experiment.
+2026/10/08 20:49:43 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+
+2026/10/08 20:49:43 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git branch is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+
+2026/10/08 20:49:43 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git repository URL is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+
+🏃 View run seasonal_naive at: http://mlflow:5000/#/experiments/1/runs/6140ca80a976455facec010e7d7fa08d
+🧪 View experiment at: http://mlflow:5000/#/experiments/1
+🏃 View run hist_gradient_boosting at: http://mlflow:5000/#/experiments/1/runs/ec4d557ef99e422fb4720fade74a2ee4
+🧪 View experiment at: http://mlflow:5000/#/experiments/1
+🏃 View run xgboost_small at: http://mlflow:5000/#/experiments/1/runs/4d28e932e7bc4a18a7e6201394686c2e
+🧪 View experiment at: http://mlflow:5000/#/experiments/1
+🏃 View run xgboost_deep at: http://mlflow:5000/#/experiments/1/runs/aba99aefc1ba4d2583056915385008f1
+🧪 View experiment at: http://mlflow:5000/#/experiments/1
+/app/.venv/lib/python3.12/site-packages/mlflow/types/utils.py:440: UserWarning: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+  warnings.warn(
+2026/10/08 20:50:30 INFO mlflow.utils.uv_utils: Detected uv project: found uv.lock and pyproject.toml in /app
+2026/10/08 20:50:30 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+2026/10/08 20:50:31 WARNING mlflow.utils.environment: Failed to resolve installed pip version. ``pip`` will be added to conda.yaml environment spec without a version specifier.
+Successfully registered model 'UrbanFlowDemand'.
+2026/10/08 20:50:32 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: UrbanFlowDemand, version 1
+Created version '1' of model 'UrbanFlowDemand'.
+🏃 View run temporal-benchmark at: http://mlflow:5000/#/experiments/1/runs/03ac87844ee840e59ccfc8c19d730769
+🧪 View experiment at: http://mlflow:5000/#/experiments/1
+20:50:32.402 | INFO    | Task run 'temporal-benchmark-and-promote-5f4' - Finished in state Completed()
+20:50:33.245 | INFO    | Task run 'offline-drift-and-coverage-380' - Finished in state Completed()
+20:50:33.246 | INFO    | Flow run 'prophetic-limpet' - {'selected_model': 'xgboost_deep', 'test': {'mae': 3.0956188292505136, 'rmse': 10.704398460084162, 'wape': 0.1798433760949291, 'poisson_deviance': 1.49537931593393}, 'valid_rows': 5949006}
+20:50:34.065 | INFO    | Flow run 'prophetic-limpet' - Finished in state Completed()

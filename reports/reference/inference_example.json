@@ -1,0 +1,26 @@
+{
+  "target_hour": "2024-03-01T05:00:00+00:00",
+  "observed_through": "2024-03-01T04:00:00+00:00",
+  "model_version": "dc0e44e82e9e",
+  "mode": "next_hour",
+  "predictions": [
+    {
+      "zone_id": 132,
+      "predicted_pickups": 202.5591278076172,
+      "lower_90": 134.66046142578125,
+      "upper_90": 270.4577941894531
+    },
+    {
+      "zone_id": 138,
+      "predicted_pickups": 112.69796752929688,
+      "lower_90": 50.36155700683594,
+      "upper_90": 175.0343780517578
+    },
+    {
+      "zone_id": 161,
+      "predicted_pickups": 94.9422607421875,
+      "lower_90": 15.10760498046875,
+      "upper_90": 174.77691650390625
+    }
+  ]
+}
