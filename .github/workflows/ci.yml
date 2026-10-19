@@ -1,0 +1,86 @@
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  quality:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.8'
+          enable-cache: true
+      - run: uv python install ${{ matrix.python }}
+      - run: uv sync --frozen --extra dev --python ${{ matrix.python }}
+      - run: uv run ruff check src tests apps scripts
+      - run: uv run ruff format --check src tests apps scripts
+      - run: uv run pytest -m "not spark and not postgres" --cov=urbanflow --cov-fail-under=75 --cov-report=xml --junitxml=test-results.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ matrix.os }}-${{ matrix.python }}
+          path: |
+            test-results.xml
+            coverage.xml
+
+  integration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-bookworm
+        env:
+          POSTGRES_USER: urbanflow
+          POSTGRES_PASSWORD: urbanflow
+          POSTGRES_DB: urbanflow
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U urbanflow" --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      DATABASE_URL: postgresql+psycopg://urbanflow:urbanflow@localhost:5432/urbanflow
+      RUN_SPARK_TESTS: '1'
+      SPARK_LOCAL_IP: 127.0.0.1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.8'
+          enable-cache: true
+      - run: uv sync --frozen --extra dev --extra spark --python 3.12
+      - run: uv run pytest -m "spark or postgres" --junitxml=integration-results.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: integration-results
+          path: integration-results.xml
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose config --quiet
+      - run: docker build -t urbanflow-ai:ci .
+      - run: |
+          docker run -d --name urbanflow-smoke -p 8000:8000 urbanflow-ai:ci
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health/live; then break; fi
+            sleep 2
+          done
+          curl -fsS http://localhost:8000/health/live
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/health/ready)" = 503
+      - run: docker logs urbanflow-smoke
+        if: always()

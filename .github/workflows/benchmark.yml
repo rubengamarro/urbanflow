@@ -1,0 +1,40 @@
+name: Real TLC benchmark
+on:
+  workflow_dispatch:
+    inputs:
+      months:
+        description: Consecutive TLC months (comma separated, no autumn DST month)
+        default: '2024-01,2024-02'
+        required: true
+permissions:
+  contents: read
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      BENCHMARK_MONTHS: ${{ inputs.months }}
+      PREFECT_HOME: ${{ github.workspace }}/.prefect
+      PREFECT_SERVER_ANALYTICS_ENABLED: 'false'
+      SPARK_LOCAL_IP: 127.0.0.1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.8'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: uv sync --frozen --extra spark --python 3.12
+      - run: uv run urbanflow pipeline --engine spark --months "$BENCHMARK_MONTHS"
+      - run: uv run urbanflow verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-real-tlc-benchmark
+          path: |
+            reports/latest/
+            data/raw/manifest.json
+            data/processed/quality.json
+            artifacts/champion.json
+            artifacts/versions/
